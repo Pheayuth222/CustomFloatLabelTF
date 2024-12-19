@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="CustomFloatLabelTF" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T3X-fu-JOp">
+                                <rect key="frame" x="30" y="92" width="333" height="60"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="User name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ft4-5n-RE6" customClass="CustomFloatTF" customModule="CustomFloatLabelTF" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="10" width="313" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemMintColor"/>
+                                <constraints>
+                                    <constraint firstItem="Ft4-5n-RE6" firstAttribute="centerY" secondItem="T3X-fu-JOp" secondAttribute="centerY" id="GNP-AW-GIG"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ft4-5n-RE6" secondAttribute="trailing" constant="10" id="O9b-g3-WPQ"/>
+                                    <constraint firstItem="Ft4-5n-RE6" firstAttribute="top" secondItem="T3X-fu-JOp" secondAttribute="top" constant="10" id="VSH-Af-JgZ"/>
+                                    <constraint firstItem="Ft4-5n-RE6" firstAttribute="leading" secondItem="T3X-fu-JOp" secondAttribute="leading" constant="10" id="jij-8T-1UT"/>
+                                    <constraint firstAttribute="height" constant="60" id="sD1-Eq-egh"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ft4-5n-RE6" secondAttribute="bottom" constant="10" id="sg9-tg-fiS"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IYI-rv-79v">
+                                <rect key="frame" x="30" y="167" width="333" height="60"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="veI-nk-S3r" customClass="CustomFloatTF" customModule="CustomFloatLabelTF" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="10" width="313" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="rightPadding">
+                                                <real key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="ImgWidth">
+                                                <real key="value" value="14"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemMintColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="veI-nk-S3r" secondAttribute="trailing" constant="10" id="3BQ-Gj-Sot"/>
+                                    <constraint firstAttribute="height" constant="60" id="AgG-oK-QZx"/>
+                                    <constraint firstItem="veI-nk-S3r" firstAttribute="leading" secondItem="IYI-rv-79v" secondAttribute="leading" constant="10" id="Gfi-Nk-dhb"/>
+                                    <constraint firstAttribute="bottom" secondItem="veI-nk-S3r" secondAttribute="bottom" constant="10" id="J5t-BD-WMX"/>
+                                    <constraint firstItem="veI-nk-S3r" firstAttribute="top" secondItem="IYI-rv-79v" secondAttribute="top" constant="10" id="RuL-cy-fNK"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="IYI-rv-79v" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="178-nn-nrY"/>
+                            <constraint firstItem="IYI-rv-79v" firstAttribute="top" secondItem="T3X-fu-JOp" secondAttribute="bottom" constant="15" id="7ez-i4-enA"/>
+                            <constraint firstItem="T3X-fu-JOp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="9Ns-L9-Edk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IYI-rv-79v" secondAttribute="trailing" constant="30" id="h9P-XZ-Wqf"/>
+                            <constraint firstItem="T3X-fu-JOp" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="33" id="otD-Ya-cta"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="T3X-fu-JOp" secondAttribute="trailing" constant="30" id="pCs-cM-L6R"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="bgView" destination="T3X-fu-JOp" id="QJF-B3-9lb"/>
+                        <outlet property="bgView2" destination="IYI-rv-79v" id="B8e-gO-iKo"/>
+                        <outlet property="bottomConstraintTF" destination="sg9-tg-fiS" id="YWX-8U-SxE"/>
+                        <outlet property="bottomConstraintTF2" destination="J5t-BD-WMX" id="zlg-DF-Kky"/>
+                        <outlet property="passwordTF" destination="veI-nk-S3r" id="A89-l4-jrH"/>
+                        <outlet property="userNameTF" destination="Ft4-5n-RE6" id="yQH-pT-V2T"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139.69465648854961" y="-2.1126760563380285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemMintColor">
+            <color red="0.0" green="0.78039215689999997" blue="0.74509803919999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
