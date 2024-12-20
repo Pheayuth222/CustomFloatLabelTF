@@ -17,14 +17,18 @@ class ViewController: UIViewController {
     @IBOutlet weak var bottomConstraintTF: NSLayoutConstraint!
     @IBOutlet weak var userNameTF: CustomFloatTF!
     @IBOutlet weak var passwordTF: CustomFloatTF!
+  
+  @IBOutlet weak var eyeButton: UIButton!
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .white
         
+        eyeButton.tintColor = .systemTeal
         hideKeyboardOnTapAround()
-        
+      
         configureBGView()
         configureBGView2()
         
@@ -52,7 +56,7 @@ class ViewController: UIViewController {
         passwordTF.font = UIFont.init(name: "helvetica", size: 16)
         passwordTF.placeholder = "Password"
         passwordTF.borderStyle = .none
-        passwordTF.isSecureTextEntry = true
+//        passwordTF.isSecureTextEntry = true
         passwordTF.textColor = .blue
         passwordTF.tag = 2
         
@@ -83,6 +87,18 @@ class ViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+  
+  @IBAction func hideShowPass(_ sender: UIButton) {
+    // Change image of eye button
+    passwordTF.isSecureTextEntry.toggle()
+    if passwordTF.isSecureTextEntry {
+      eyeButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+    } else {
+      eyeButton.setImage(UIImage(systemName: "eye"), for: .normal)
+    }
+    
+  }
+  
 
 }
 
@@ -120,7 +136,7 @@ extension ViewController: UITextFieldDelegate {
         } else {
             bottomConstraintTF2.constant = constant
         }
-        UIView.animate(withDuration: 0.3) {
+        UIView.animate(withDuration: 0.1) {
             self.view.layoutIfNeeded()
         }
     }
@@ -134,30 +150,9 @@ extension ViewController: UITextFieldDelegate {
     fileprivate var labelPlaceholder : UILabel?
     
     fileprivate var placeholderLabelHeight : NSLayoutConstraint?
-
-     private var _isRightViewVisible: Bool = true
-    
-    var isRightViewVisible: Bool {
-        get {
-            return _isRightViewVisible
-        }
-        set {
-            _isRightViewVisible = newValue
-        }
-    }
     
      /// Disable Floating Label when true.
      @IBInspectable open var disableFloatingLabel : Bool = false
-    
-     /// Shake Bottom line when Showing Error ?
-     @IBInspectable open var shakeLineWithError : Bool = true
-    
-     /// Change Bottom Line Color.
-    @IBInspectable open var lineColor : UIColor = UIColor.black {
-        didSet{
-            self.floatTheLabel()
-        }
-    }
     
      /// Change line color when Editing in textfield
     @IBInspectable open var selectedLineColor : UIColor = UIColor(red: 19/256.0, green: 141/256.0, blue: 117/256.0, alpha: 1.0){
@@ -287,7 +282,7 @@ fileprivate extension CustomFloatTF {
         labelPlaceholder?.text = placeholderText
         labelPlaceholder?.textAlignment = self.textAlignment
         labelPlaceholder?.textColor = placeHolderColor
-        labelPlaceholder?.font = UIFont.init(name: (self.font?.fontName ?? "helvetica")!, size: 12)
+        labelPlaceholder?.font = UIFont.init(name: "helvetica", size: 12)
         labelPlaceholder?.isHidden = true
         labelPlaceholder?.sizeToFit()
         labelPlaceholder?.translatesAutoresizingMaskIntoConstraints = false
@@ -295,7 +290,7 @@ fileprivate extension CustomFloatTF {
         if labelPlaceholder != nil {
             self.addSubview(labelPlaceholder!)
         }
-        let leadingConstraint = NSLayoutConstraint.init(item: labelPlaceholder!, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 5)
+        let leadingConstraint = NSLayoutConstraint.init(item: labelPlaceholder!, attribute: .leading, relatedBy: .equal, toItem: self, attribute: .leading, multiplier: 1, constant: 4)
         let trailingConstraint = NSLayoutConstraint.init(item: labelPlaceholder!, attribute: .trailing, relatedBy: .equal, toItem: self, attribute: .trailing, multiplier: 1, constant: 0)
         let topConstraint = NSLayoutConstraint.init(item: labelPlaceholder!, attribute: .top, relatedBy: .equal, toItem: self, attribute: .top, multiplier: 1, constant: 0)
         placeholderLabelHeight = NSLayoutConstraint.init(item: labelPlaceholder!, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 15)
@@ -351,7 +346,7 @@ fileprivate extension CustomFloatTF {
         placeholderLabelHeight?.constant = 15;
         labelPlaceholder?.font = UIFont(name: (self.font?.fontName)!, size: 12)
 
-        UIView.animate(withDuration: 0.2, animations: {
+        UIView.animate(withDuration: 0.1, animations: {
             print("English...")
             self.layoutIfNeeded()
         })
@@ -366,7 +361,7 @@ fileprivate extension CustomFloatTF {
             
             labelPlaceholder?.isHidden = true
             self.labelPlaceholder?.textColor = self.placeHolderColor;
-            UIView.animate(withDuration: 0.2, animations: {
+            UIView.animate(withDuration: 0.1, animations: {
                 print("disableFloatingLabel...")
                 self.layoutIfNeeded()
             })
@@ -375,7 +370,7 @@ fileprivate extension CustomFloatTF {
         
         placeholderLabelHeight?.constant = self.frame.height
 
-        UIView.animate(withDuration: 0.3, animations: {
+        UIView.animate(withDuration: 0.1, animations: {
             self.labelPlaceholder?.font = self.font
             self.labelPlaceholder?.textColor = self.placeHolderColor
             self.layoutIfNeeded()
