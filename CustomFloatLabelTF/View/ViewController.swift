@@ -17,9 +17,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var bottomConstraintTF: NSLayoutConstraint!
     @IBOutlet weak var userNameTF: CustomFloatTF!
     @IBOutlet weak var passwordTF: CustomFloatTF!
-  
-  @IBOutlet weak var eyeButton: UIButton!
-  
+    
+    @IBOutlet weak var eyeButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +27,44 @@ class ViewController: UIViewController {
         view.backgroundColor = .white
         
         eyeButton.tintColor = .systemTeal
+        
         hideKeyboardOnTapAround()
-      
+        
         configureBGView()
         configureBGView2()
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    @IBAction func hideShowPass(_ sender: UIButton) {
+        // Change image of eye button
+        passwordTF.isSecureTextEntry.toggle()
+        if passwordTF.isSecureTextEntry {
+            eyeButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
+        } else {
+            eyeButton.setImage(UIImage(systemName: "eye"), for: .normal)
+        }
+    }
+    
+}
+
+extension ViewController {
+    
+    func hideKeyboardOnTapAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
+    }
+    
+    @objc func hideKeyboard() {
+        self.view.endEditing(true)
     }
     
     private func configureBGView() {
@@ -67,39 +100,7 @@ class ViewController: UIViewController {
         bgView2.layer.borderWidth = 1
         bgView2.layer.masksToBounds = true
     }
-
-    func hideKeyboardOnTapAround() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.hideKeyboard))
-        tap.cancelsTouchesInView = false
-        self.view.addGestureRecognizer(tap)
-    }
     
-    @objc func hideKeyboard() {
-        self.view.endEditing(true)
-    }
-    
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-  
-  @IBAction func hideShowPass(_ sender: UIButton) {
-    // Change image of eye button
-    passwordTF.isSecureTextEntry.toggle()
-    if passwordTF.isSecureTextEntry {
-      eyeButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
-    } else {
-      eyeButton.setImage(UIImage(systemName: "eye"), for: .normal)
-    }
-    
-  }
-  
-
 }
 
 extension ViewController: UITextFieldDelegate {
