@@ -62,7 +62,7 @@
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal">
                                             <color key="titleColor" red="1" green="0.75686274509999996" blue="0.027450980390000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <imageReference key="image" image="eye" catalog="system" symbolScale="medium" renderingMode="hierarchical-single">
+                                            <imageReference key="image" image="eye.slash" catalog="system" symbolScale="medium" renderingMode="hierarchical-single">
                                                 <hierarchicalColors>
                                                     <color systemColor="systemTealColor"/>
                                                     <color systemColor="secondaryLabelColor"/>
@@ -114,7 +114,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="eye" catalog="system" width="128" height="79"/>
+        <image name="eye.slash" catalog="system" width="128" height="97"/>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
